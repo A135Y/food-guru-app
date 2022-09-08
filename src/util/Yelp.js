@@ -1,6 +1,5 @@
 const apiKey = '0ABX7rBAG3-ziVh9JtCmf568bdfCm0R0wadMkgzAZgXFftRnkmNymJiaN4oGiH0LGt4ysknJuuHxQvdUt7u-vG1SgIMJOzvhVhLlHz78nP8_IzkTmIY9wqZdaZAYY3Yx';
 
-// https://cors-anywhere.herokuapp.com/
 
 const Yelp = {
     search(term, location, sortBy) {

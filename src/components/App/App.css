@@ -1,5 +1,3 @@
-/* Universal Styles */
-
 html {
   font-size: 18px;
 }
@@ -14,8 +12,6 @@ input:focus {
   outline: none;
 }
 
-/* Reusable Component - Image Container */
-
 .image-container {
   display: flex;
   flex-direction: column;
@@ -27,8 +23,6 @@ input:focus {
 .image-container img {
   width: 100%;
 }
-
-/* App Styles */
 
 .App {
   font-family: 'Work Sans', sans-serif;

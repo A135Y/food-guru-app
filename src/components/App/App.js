@@ -1,24 +1,35 @@
-import React from 'react';
-import './App.css';
-import BusinessList from '../BusinessList/BusinessList';
-import SearchBar from '../SearchBar/SearchBar';
-import Yelp from '../../util/Yelp';
+import React from "react";
+import "./App.css";
+import BusinessList from "../BusinessList/BusinessList";
+import SearchBar from "../SearchBar/SearchBar";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      businesses: []
+      businesses: [],
     };
 
     this.searchYelp = this.searchYelp.bind(this);
   }
 
   async searchYelp(term, location, sortBy) {
-    await Yelp.search(term, location, sortBy).then(businesses => {
-      this.setState({ businesses: businesses });
+    const params = new URLSearchParams({
+      term,
+      location,
+      sort_by: sortBy,
     });
+
+    try {
+      const response = await fetch(
+        `/.netlify/functions/yelp?${params.toString()}`
+      );
+      const data = await response.json();
+      this.setState({ businesses: data });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   render() {
